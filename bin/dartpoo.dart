@@ -31,11 +31,11 @@ void main() {
 
   legume1.cozinhar(); // Funciona
 
-  fruta1.cozinhar(); // Erro!
+  // fruta1.cozinhar(); // Erro!
 
-  legume1.fazerSuco(); // Erro!
+  // legume1.fazerSuco(); // Erro!
 
-  fruta1.fazerSuco(); // Funciona!
+  // fruta1.fazerSuco(); // Funciona!
 }
 
 bool funcEstaMadura(int dias) {
@@ -159,6 +159,12 @@ class Nozes extends Fruta {
   Nozes(String nome, double peso, String cor, String sabor,
       int diaDesdeColheita, this.porcentagemOleoNatural)
       : super(nome, peso, cor, sabor, diaDesdeColheita);
+
+  @override
+  void fazerMassa(){
+    print('Tirar a casca');
+    super.fazerMassa();
+  }
 }
 
 abstract class Bolo{
