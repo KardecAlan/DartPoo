@@ -62,7 +62,7 @@ int funcQuantosDiasMadura(int dias) {
   return quantosDiasFaltam;
 }
 
-class Fruta extends Alimento {
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int diasDesdeColheita;
   bool? isMadura;
@@ -82,6 +82,21 @@ class Fruta extends Alimento {
   void fazerSuco() {
     print("Você fez um ótimo suco de $nome");
   }
+
+  @override
+  void assar() {
+    // TODO: implement assar
+  }
+
+  @override
+  void fazerMassa() {
+    // TODO: implement fazerMassa
+  }
+
+  @override
+  void separarIngredientes() {
+    // TODO: implement separarIngredientes
+  }
 }
 
 class Alimento {
@@ -96,7 +111,7 @@ class Alimento {
   }
 }
 
-class Legume extends Alimento {
+class Legume extends Alimento implements Bolo {
   bool isPrecisaCozinhar;
 
   Legume(String nome, double peso, String cor, this.isPrecisaCozinhar)
@@ -106,6 +121,21 @@ class Legume extends Alimento {
     (isPrecisaCozinhar)
         ? print("Pronto, o $nome está cozinhado!")
         : print("Nem precisou cozinhar");
+  }
+
+  @override
+  void assar() {
+    // TODO: implement assar
+  }
+
+  @override
+  void fazerMassa() {
+    // TODO: implement fazerMassa
+  }
+
+  @override
+  void separarIngredientes() {
+    // TODO: implement separarIngredientes
   }
 }
 
@@ -129,4 +159,10 @@ class Nozes extends Fruta {
   Nozes(String nome, double peso, String cor, String sabor,
       int diaDesdeColheita, this.porcentagemOleoNatural)
       : super(nome, peso, cor, sabor, diaDesdeColheita);
+}
+
+abstract class Bolo{
+  void separarIngredientes();
+  void fazerMassa();
+  void assar();
 }
